@@ -9,5 +9,11 @@ module.exports = {
   },
   signIn: (email) => {
     return knex('user').where('email', email)
+  },
+  signUp: (email) => {
+    return knex('user').where('email', email)
+  },
+  insertUser: (body) => {
+    return knex('user').insert(body).returning('*')
   }
 }

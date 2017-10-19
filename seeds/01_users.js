@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt')
 
 exports.seed = function(knex, Promise) {
-  return knex.raw('DELETE FROM "user"; ALTER SEQUENCE user_id_seq RESTART WITH 4;')
+  return knex.raw('DELETE FROM "user"; ALTER SEQUENCE user_id_seq RESTART WITH 10;')
     .then(() => {
       let hash1 = bcrypt.hashSync('brian', 8)
       let hash2 = bcrypt.hashSync('jon', 8)

@@ -6,7 +6,12 @@ const queries = require('./queries');
 const knex = require('./connection')
 require('dotenv').config();
 
-
+function validUser(user) {
+  let validName = typeof user.name === 'string' && user.name.trim() !== '' && user.name !== null;
+  let validEmail = typeof user.email === 'string' && user.email.match(/([@])/g) && user.email !== null;
+  let validPassword = typeof user.password === 'string' && user.password.trim() !== '';
+  return validName && validEmail && validPassword;
+}
 
 router.get('/user', (req, res, next) => {
   queries.getUsers()
@@ -49,6 +54,36 @@ router.post('/signin', (req, res, next) => {
   } else {
     res.json({
       error: 'please enter an email'
+    })
+  }
+});
+
+router.post('/signup', (req, res, next) => {
+  if (validUser(req.body)) {
+    let email = req.body.email;
+    let body = req.body;
+    queries.signUp(email)
+      .then(user => {
+        if (user.length === 0) {
+          var hash = bcrypt.hashSync(req.body.password, 8)
+          req.body.password = hash
+          queries.insertUser(body)
+            .then(user => {
+              delete user[0].password
+              var token = jwt.sign(user[0].id, process.env.TOKEN_SECRET);
+              res.json({
+                data: token
+              })
+            })
+        } else {
+          res.json({
+            error: 'email already in use'
+          });
+        }
+      })
+  } else {
+    res.json({
+      error: 'Invalid inputs.'
     })
   }
 });
