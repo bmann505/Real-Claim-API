@@ -6,5 +6,8 @@ module.exports = {
   },
   getClaims: () => {
     return knex('claim')
+  },
+  signIn: (email) => {
+    return knex('user').where('email', email)
   }
 }
