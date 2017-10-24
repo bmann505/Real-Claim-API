@@ -15,5 +15,8 @@ module.exports = {
   },
   insertUser: (body) => {
     return knex('user').insert(body).returning('*')
+  },
+  insertClaim: (body) => {
+    return knex('claim').insert(body).returning('*')
   }
 }

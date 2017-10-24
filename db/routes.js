@@ -27,6 +27,14 @@ router.get('/claim', (req, res, next) => {
     })
 })
 
+router.post('/claim', (req, res, next) => {
+  let body = req.body;
+  queries.insertClaim(body)
+    .then(claim => {
+      res.json(claim)
+    })
+})
+
 router.post('/signin', (req, res, next) => {
   if (req.body.email !== undefined || req.body.password !== undefined) {
     let email = req.body.email;
