@@ -8,7 +8,7 @@ module.exports = {
     return knex('claim')
   },
   signIn: (email) => {
-    return knex('user').where('email', email)
+    return knex('user').where('email', email).returning('*')
   },
   signUp: (email) => {
     return knex('user').where('email', email)
@@ -21,7 +21,7 @@ module.exports = {
   },
   claimByOwner: (id) => {
     return knex('claim')
-      .select('claim.id', 'claim.value', 'claim.status', 'claim.value', 'claim.address', 'claim.user_id',
+      .select('claim.id', 'claim.estimate', 'claim.status', 'claim.value', 'claim.address', 'claim.user_id',
         'claim.contractor_id', 'claim.adjustor_id')
       .innerJoin('user', 'user.id', 'claim.user_id')
       .where('user.id', id)
