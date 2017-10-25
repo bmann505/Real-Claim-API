@@ -53,12 +53,14 @@ router.post('/signin', (req, res, next) => {
             error: 'Email or password did not match'
           })
         } else {
-          var match = bcrypt.compareSync(req.body.password, user[0].password)
+          const match = bcrypt.compareSync(req.body.password, user[0].password)
           if (match) {
             delete user[0].password
-            var token = jwt.sign(user[0].id, process.env.TOKEN_SECRET);
+            const token = jwt.sign(user[0].id, process.env.TOKEN_SECRET);
+            const role = user[0].role;
             res.json({
-              data: token
+              data: token,
+              role: role
             })
           } else {
             res.json({
@@ -86,9 +88,14 @@ router.post('/signup', (req, res, next) => {
           queries.insertUser(body)
             .then(user => {
               delete user[0].password
-              var token = jwt.sign(user[0].id, process.env.TOKEN_SECRET);
+              const token = jwt.sign(user[0].id, process.env.TOKEN_SECRET);
+              let role = user[0].role;
+              if (role === "") {
+                role = 'claims user'
+              }
               res.json({
-                data: token
+                data: token,
+                role: role
               })
             })
         } else {
