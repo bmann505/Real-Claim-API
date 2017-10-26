@@ -14,7 +14,7 @@ exports.seed = function(knex, Promise) {
       let hash9 = bcrypt.hashSync('dwight', 8)
       let users = [{
         id: 1,
-        name: 'Brian',
+        name: 'Brian Mann',
         email: 'brian@realclaim.com',
         password: hash1,
         title: 'user',
@@ -22,7 +22,7 @@ exports.seed = function(knex, Promise) {
         role: 'claims user'
       }, {
         id: 2,
-        name: 'Jon',
+        name: 'Jon Doe',
         email: 'jon@smallstate.com',
         password: hash2,
         title: 'adjustor',
@@ -30,7 +30,7 @@ exports.seed = function(knex, Promise) {
         role: 'adjustor'
       }, {
         id: 3,
-        name: 'Dan',
+        name: 'Dan Fry',
         email: 'dan@bestcontractor.com',
         password: hash3,
         title: 'contractor',
@@ -38,7 +38,7 @@ exports.seed = function(knex, Promise) {
         role: 'contractor'
       }, {
         id: 4,
-        name: 'Todd',
+        name: 'Todd Sweet',
         email: 'todd@realclaim.com',
         password: hash4,
         title: 'user',
@@ -46,7 +46,7 @@ exports.seed = function(knex, Promise) {
         role: 'claims user'
       }, {
         id: 5,
-        name: 'Jack',
+        name: 'Jack Baker',
         email: 'Jack@smallstate.com',
         password: hash5,
         title: 'adjustor',
@@ -54,7 +54,7 @@ exports.seed = function(knex, Promise) {
         role: 'adjustor'
       }, {
         id: 6,
-        name: 'Dirk',
+        name: 'Dirk Nowitsky',
         email: 'dirk@worstcontractor.com',
         password: hash6,
         title: 'contractor',
@@ -62,7 +62,7 @@ exports.seed = function(knex, Promise) {
         role: 'contractor'
       }, {
         id: 7,
-        name: 'Bill',
+        name: 'Bill Mur',
         email: 'bill@realclaim.com',
         password: hash7,
         title: 'user',
@@ -70,7 +70,7 @@ exports.seed = function(knex, Promise) {
         role: 'claims user'
       }, {
         id: 8,
-        name: 'James',
+        name: 'James Doyle',
         email: 'james@quackflec.com',
         password: hash8,
         title: 'adjustor',
@@ -78,7 +78,7 @@ exports.seed = function(knex, Promise) {
         role: 'adjustor'
       }, {
         id: 9,
-        name: 'Dwight',
+        name: 'Dwight Schrute',
         email: 'dwight@firstcontractor.com',
         password: hash9,
         title: 'contractor',
