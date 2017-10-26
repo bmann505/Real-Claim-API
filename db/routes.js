@@ -43,6 +43,14 @@ router.get('/contractor/:id', (req, res, next) => {
     })
 })
 
+router.get('/adjustor/:id', (req, res, next) => {
+  let id = req.params.id
+  queries.claimByAdjustor(id)
+    .then(claims => {
+      res.json(claims)
+    })
+})
+
 router.post('/claim', (req, res, next) => {
   let body = req.body;
   queries.insertClaim(body)
