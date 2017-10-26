@@ -27,9 +27,17 @@ router.get('/claim', (req, res, next) => {
     })
 })
 
-router.get('/claim/:id', (req, res, next) => {
+router.get('/owner/:id', (req, res, next) => {
   let id = req.params.id
   queries.claimByOwner(id)
+    .then(claims => {
+      res.json(claims)
+    })
+})
+
+router.get('/contractor/:id', (req, res, next) => {
+  let id = req.params.id
+  queries.claimByContractor(id)
     .then(claims => {
       res.json(claims)
     })
