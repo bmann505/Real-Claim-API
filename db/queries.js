@@ -22,7 +22,7 @@ module.exports = {
   claimByOwner: (id) => {
     return knex('claim')
       .select('claim.id', 'claim.description', 'claim.estimate', 'claim.status', 'claim.value', 'claim.address', 'claim.user_id',
-        'claim.contractor_id', 'claim.adjustor_id', )
+        'claim.contractor_id', 'claim.adjustor_id')
       .innerJoin('user', 'user.id', 'claim.user_id')
       .where('user.id', id)
       .then(claims => {
