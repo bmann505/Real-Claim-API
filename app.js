@@ -9,6 +9,8 @@ const contractorRoutes = require('./routes/contractorroutes');
 const signInRoutes = require('./routes/signinroutes');
 const signUpRoutes = require('./routes/signuproutes');
 const claimRoutes = require('./routes/claimroutes');
+const supplementRoutes = require('./routes/supplementroutes');
+const imageRoutes = require('./routes/imageroutes');
 const bodyParser = require('body-parser');
 
 app.use((req, res, next) => {
@@ -28,6 +30,8 @@ app.use('/adjustor', adjustorRoutes)
 app.use('/signup', signUpRoutes);
 app.use('/signin', signInRoutes);
 app.use('/claim', claimRoutes);
+app.use('/supplement', supplementRoutes);
+app.use('/image', imageRoutes);
 
 
 app.listen(port);
