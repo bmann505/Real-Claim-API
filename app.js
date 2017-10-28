@@ -3,7 +3,12 @@ const knex = require('./db/connection.js')
 const app = express();
 const cors = require('cors');
 const port = process.env.PORT || 8080;
-const routes = require('./db/routes');
+const ownerRoutes = require('./routes/ownerroutes');
+const adjustorRoutes = require('./routes/adjustorRoutes');
+const contractorRoutes = require('./routes/contractorroutes');
+const signInRoutes = require('./routes/signinroutes');
+const signUpRoutes = require('./routes/signuproutes');
+const claimRoutes = require('./routes/claimroutes');
 const bodyParser = require('body-parser');
 
 app.use((req, res, next) => {
@@ -17,7 +22,12 @@ app.use(bodyParser.urlencoded({
   extended: false
 }))
 
-app.use('/', routes);
+app.use('/owner', ownerRoutes);
+app.use('/contractor', contractorRoutes);
+app.use('/adjustor', adjustorRoutes)
+app.use('/signup', signUpRoutes);
+app.use('/signin', signInRoutes);
+app.use('/claim', claimRoutes);
 
 
 app.listen(port);
