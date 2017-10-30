@@ -25,4 +25,13 @@ router.post('/', (req, res, next) => {
     })
 })
 
+router.put('/:id', (req, res, next) => {
+  let id = req.params.id;
+  let edit = req.body;
+  queries.updateClaim(id, edit)
+    .then(edited => {
+      res.json(edited);
+    })
+})
+
 module.exports = router;

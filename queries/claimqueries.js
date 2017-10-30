@@ -8,6 +8,11 @@ module.exports = {
 
   insertClaim: (body) => {
     return knex('claim').insert(body).returning('*')
-  }
+  },
 
+  updateClaim: (id, edit) => {
+    return knex('claim').where('id', id)
+      .update(edit)
+      .returning('*')
+  }
 }
