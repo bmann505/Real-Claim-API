@@ -12,7 +12,7 @@ exports.seed = function(knex, Promise) {
         url: 'https://s3.us-east-2.amazonaws.com/supplementalclaim/5633b74c-74d3-4c8b-9a44-5a9029920262',
         name: 'cracked windows',
         type: 'picture',
-        claim_id: 2
+        claim_id: 1
       }]
       return knex('supplement').insert(supplements);
     })

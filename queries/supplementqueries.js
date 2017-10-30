@@ -8,6 +8,10 @@ module.exports = {
 
   getSupplements: () => {
     return knex('supplement');
+  },
+
+  getSupplementById: (id) => {
+    return knex('supplement').where('claim_id', id).returning('*')
   }
 
 }

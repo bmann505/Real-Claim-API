@@ -30,4 +30,12 @@ router.get('/', (req, res, next) => {
     })
 })
 
+router.get('/:id', (req, res, next) => {
+  let id = req.params.id
+  queries.getSupplementById(id)
+    .then(supplement => {
+      res.json(supplement)
+    })
+})
+
 module.exports = router;
