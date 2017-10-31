@@ -12,7 +12,9 @@ const claimRoutes = require('./routes/claimroutes');
 const supplementRoutes = require('./routes/supplementroutes');
 const imageRoutes = require('./routes/imageroutes');
 const userRoutes = require('./routes/userroutes');
+const confirmationRoutes = require('./routes/confirmationroutes')
 const bodyParser = require('body-parser');
+const client = require('twilio')('ACa9c7a87b3bc86e2d13ab36118a884b35', '9fc5a6e0096bb91e811c95d709988d05')
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', req.headers.origin);
@@ -34,6 +36,7 @@ app.use('/claim', claimRoutes);
 app.use('/supplement', supplementRoutes);
 app.use('/image', imageRoutes);
 app.use('/user', userRoutes);
+app.use('/confirmation', confirmationRoutes);
 
 
 app.listen(port);

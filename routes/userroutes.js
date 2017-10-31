@@ -7,6 +7,7 @@ const knex = require('../db/connection')
 const AWS = require('aws-sdk');
 const uuid = require('uuid/v4');
 const upload = require('multer')();
+
 require('dotenv').config();
 AWS.config.update({
   accessKeyId: process.env.S3_KEY,
@@ -22,6 +23,8 @@ router.get('/', (req, res, next) => {
       res.json(claims)
     })
 })
+
+
 
 
 module.exports = router;
