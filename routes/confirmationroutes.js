@@ -15,9 +15,7 @@ router.get('/', function(req, res, next) {
     to: "+15052691899",
     from: "+15052070927",
     body: "Your Claim has been Approved!!",
-  }, function(err, message) {
-    console.log(message.sid);
-  });
+  }, function(err, message) {});
 })
 
 
